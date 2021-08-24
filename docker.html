@@ -1,0 +1,105 @@
+<html>
+	<head>
+		<title>docker_cgi</title>
+		<h1 id='h1'>Javascript Integration with Docker</h1>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide|Trirong">
+	</head>
+	<body>
+	<div id='d1'>[root@localhost~]#
+		<input type="text" id="in1" name="fname" placeholder="Enter your command..." /><br><br>
+	</div>
+	<pre>
+	<textarea id='t1' placeholder="output"></textarea>
+	</pre>
+	<button id='b1' onclick='lw();'>Enter</button>
+	</body>
+
+<style>
+
+	Body {
+		background-image: url("docker.png");
+		}
+
+	div#d1 {
+		font-size: 30px;
+		color: rgb(0, 0, 0);
+		text-indent:410px;
+		font-weight: bolder;
+		font-family: "Trirong", serif;
+		margin-top: 80px;
+		}
+	textarea#t1 {
+		font-weight: bold;
+		height: 40%;
+		width: 60%;
+		margin-left: 250px;
+  		border: 10px solid transparent;
+  		padding: 15px;
+  		border-image: linear-gradient(#000000, #ffffff) 30;
+	}
+
+	button {
+
+		font-family: myFirstFont;
+		background-color: rgb(255, 255, 255);
+		src: url(sansation_bold.woff);
+		font-weight: bold;
+		text-align: center;
+		border-radius: 8px;
+		font-size: 20px;
+		height: 45px;
+		width: 160px;
+		margin-left: 680px;
+		border: 3px solid black;
+		cursor: pointer;
+	}
+	button:hover {background-color: rgb(187, 187, 206)}
+	button:active {
+		background-color: #b67f2d;
+		box-shadow: 0 5px #666;
+		transform: translateY(4px);
+	}
+
+
+	h1#h1 {
+		color: rgb(0, 0, 0);
+        text-align: center;
+        font-size: 50px;
+        font-weight: bolder;
+		text-shadow: 2px 2px 5px rgb(80, 77, 80);
+		text-decoration: underline;
+		font-family: "Audiowide", sans-serif;
+		margin-top: 60px;
+		font-variant: small-caps;
+
+	}
+
+	input#in1[type=text] {
+		font-weight: bold;
+		width: 30%;
+		height: 5%;
+		border-bottom: 3px solid #555;
+		border-radius: 8px;
+		box-sizing: border-box;
+		resize: vertical;
+	}
+</style>
+
+</html>
+
+<script>
+	function lw() 
+	{
+		var i = document.getElementById('in1').value;
+		var xhr = new XMLHttpRequest();
+		xhr.open('GET', 'http://192.168.56.118/cgi-bin/docker.py?x='+i, true);
+		xhr.send();
+
+		// output from GUI
+		xhr.onload = function() {
+			var output = xhr.responseText;
+			document.getElementById("t1").innerHTML = output;
+		}
+
+	}
+</script>
