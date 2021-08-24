@@ -1,6 +1,6 @@
 # task-09-Docker-Kubernetes-CGI
 
-# Task-07: https://github.com/gaurav4448/task-07-docker-CGI.git
+Task-07: https://github.com/gaurav4448/task-07-docker-CGI.git
 
 Task Description 📄
 
@@ -19,3 +19,7 @@ Feature necessary -
 Note - There should be webUI based menu display so that user can get to know what your webapp can do. 
 
 📌 This app will help the user to run all the Kubernetes commands:
+
+
+NOTE:
+The python files are created according to infrastructure of docker and kubernetes. We can modify them depending upon our use-cases.
